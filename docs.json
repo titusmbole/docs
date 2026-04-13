@@ -63,7 +63,6 @@
       },
       {
         "tab": "API reference",
-        "hidden": true,
         "groups": [
           {
             "group": "API documentation",
@@ -120,5 +119,8 @@
       "linkedin": "https://linkedin.com/company/mintlify"
     }
   },
-  "description": "Ticketing system made for artisans"
+  "description": "Ticketing system made for artisans",
+  "api": {
+    "openapi": "/Billing_APIUsers.postman_collection.json"
+  }
 }

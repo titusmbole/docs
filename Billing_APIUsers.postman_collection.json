@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "6ff6bc47-29af-4a9f-bd6c-8b3ce07db759",
+		"name": "Billing_API Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25853572"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "CreateUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"davie.paul@equitybank.co.ke\",\n    \"first_name\": \"Davie\",\n    \"last_name\": \"Davie\",\n    \"username\": \"davie.paul@equitybank.co.ke\",\n    \"country_code\": \"KE\",\n    \"phone\": \"25473333333\",\n    \"date_activated\": \"2021-02-25T14:05:08.750000\",\n    \"user_category\": \"SUPERADMIN\",\n    \"flag\": \"99\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{devUrl}}/user/add/",
+									"host": [
+										"{{devUrl}}"
+									],
+									"path": [
+										"user",
+										"add",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FetchUserAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NDg2MjY4LCJqdGkiOiIwNWVlNzdiZTRmNGI0OWMyOGIxYTcwNGVkNzE4ZGY5NCIsInVzZXJfaWQiOjEwLCJlbWFpbCI6Im1raGlzYUBnbWFpbC5jb20iLCJ1c2VyX2NhdGVnb3J5IjoiU1VQRVJBRE1JTiIsImJpbGxlcl9pZCI6bnVsbCwiaDJoX2N1c3RvbWVyIjpudWxsLCJmaXJzdF9sb2dpbiI6ZmFsc2UsImdyb3VwX2lkIjoxLCJjdXN0b21lcl9pZCI6bnVsbCwicGVybWlzc2lvbnMiOltdfQ.pOD23ieGed8IhtO6TDlnh0s0h_gl9HAfaB5lqwKeF5E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"biller_code\": \"101904\",\n    \"currency\": \"KES\",\n    \"direct_fetch\": \"direct\",\n    \"in_bills\": \"inbills\",\n    \"service_name\": \"ZUKU\",\n    \"biller\": 2,\n    \"flag\": 99,\n    \"service_details\": {\n        \"account_name\": \"TILL\",\n        \"email\": \"zuku.com\",\n        \"phone_number_one\": \"0724017787\",\n        \"service_request\": 8,\n        \"service_type\": \"TILL\",\n        \"service_desc\": \"ZUKU Service\",\n        \"foracid\": 2,\n        \"account_number\": \"1234\",\n        \"phone_number_two\": \"0724017787\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{devUrl}}/user/fetchUser/all",
+									"host": [
+										"{{devUrl}}"
+									],
+									"path": [
+										"user",
+										"fetchUser",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeactivateUser",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_active\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localUrl}}/user/updateUser/1",
+									"host": [
+										"{{localUrl}}"
+									],
+									"path": [
+										"user",
+										"updateUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActyivateUser",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_active\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localUrl}}/user/updateUser/1",
+									"host": [
+										"{{localUrl}}"
+									],
+									"path": [
+										"user",
+										"updateUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"staffmaker@equitybank.co.ke\",\n    \"password\": \"Pass@1234!!.\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uatUrl}}/user/login",
+									"host": [
+										"{{uatUrl}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUser",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"id\": 1,\n        \"email\": \"pkabaiku@azenia.com\",\n        \"first_name\": \"Paul\",\n        \"last_name\": \"Kabaiku\",\n        \"username\": \"pkabaiku@azenia.com\",\n        \"country_code\": \"KE\",\n        \"phone\": \"254724017787\",\n        \"date_activated\": \"1900-01-01T00:00:00\",\n        \"password_updated\": \"1900-01-01T00:00:00\",\n        \"user_category\": \"CHECKER\",\n        \"flag\": \"99\",\n        \"biller_id\": 0,\n        \"group_id\": 0,\n        \"h2h_customer\": \"0\",\n        \"is_superuser\": 1,\n        \"is_staff\": 0,\n        \"is_active\": 1,\n        \"is_verified\": 1,\n        \"first_login\": 0,\n        \"customer_id\": 0,\n        \"last_login\": \"2023-08-14T12:53:10.228388\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uatUrl}}/user/updateUser/1",
+									"host": [
+										"{{uatUrl}}"
+									],
+									"path": [
+										"user",
+										"updateUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUserRole",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_category\": \"STAFFMAKER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uatUrl}}/user/updateUser/1",
+									"host": [
+										"{{uatUrl}}"
+									],
+									"path": [
+										"user",
+										"updateUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FetchUserByID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{uatUrl}}/user/fetchUser/1",
+									"host": [
+										"{{uatUrl}}"
+									],
+									"path": [
+										"user",
+										"fetchUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FetchRoles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localUrl}}/user/roles",
+									"host": [
+										"{{localUrl}}"
+									],
+									"path": [
+										"user",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FetcgRoleByName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localUrl}}/user/roles/STAFFMAKER",
+									"host": [
+										"{{localUrl}}"
+									],
+									"path": [
+										"user",
+										"roles",
+										"STAFFMAKER"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcwMjA2NzI3LCJpYXQiOjE3NzAyMDMxMjcsImp0aSI6IjA2ZWJhMGU1MjQ4MjQwYzdiYzdkZDdjMWNjZmExY2JiIiwidXNlcl9pZCI6IjIiLCJlbWFpbCI6InN0YWZmLm1ha2VyQGVxdWl0eWJhbmsuY28ua2UiLCJ1c2VyX2NhdGVnb3J5IjoiU1RBRkZNQUtFUiIsImJpbGxlcl9pZCI6bnVsbCwiaDJoX2N1c3RvbWVyIjpudWxsLCJmaXJzdF9sb2dpbiI6dHJ1ZSwiZ3JvdXBfaWQiOm51bGwsImN1c3RvbWVyX2lkIjpudWxsLCJjb3VudHJ5X2NvZGUiOiJncm91cCIsInBlcm1pc3Npb25zIjpbXX0.bMFDyngKVhpqnRkMYdkf2iUW5x6vFMDymArrY1bXOpI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "devUrl",
+			"value": "https://eq-billingportal-api-dev.azurewebsites.net"
+		},
+		{
+			"key": "localUrl",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "uatUrl",
+			"value": "https://eq-billingportal-api-uat.azurewebsites.net"
+		},
+		{
+			"key": "Ngrok",
+			"value": "https://5f3b-105-160-47-202.in.ngrok.io"
+		},
+		{
+			"key": "ws02Url",
+			"value": "https://localhost:8243/billing/1.0.0"
+		},
+		{
+			"key": "kleft",
+			"value": ""
+		}
+	]
+}
